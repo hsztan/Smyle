@@ -1,0 +1,2 @@
+class Smyler < ApplicationRecord
+end

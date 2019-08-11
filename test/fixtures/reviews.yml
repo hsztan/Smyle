@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  score: 1
+  content: MyString
+  smyler_id: 1
+  hearo_id: 1
+
+two:
+  score: 1
+  content: MyString
+  smyler_id: 1
+  hearo_id: 1

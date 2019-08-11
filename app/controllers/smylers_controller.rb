@@ -1,0 +1,2 @@
+class SmylersController < ApplicationController
+end

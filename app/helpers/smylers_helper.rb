@@ -1,0 +1,2 @@
+module SmylersHelper
+end

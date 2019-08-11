@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  username: MyString
+  first_name: MyString
+  middle_name: MyString
+  last_name: MyString
+  password_digest: MyString
+  verification_code: MyString
+  specialty: MyString
+  dob: 2019-08-11 16:23:18
+  therapist_code: MyString
+
+two:
+  username: MyString
+  first_name: MyString
+  middle_name: MyString
+  last_name: MyString
+  password_digest: MyString
+  verification_code: MyString
+  specialty: MyString
+  dob: 2019-08-11 16:23:18
+  therapist_code: MyString
