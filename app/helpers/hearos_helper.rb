@@ -1,0 +1,2 @@
+module HearosHelper
+end

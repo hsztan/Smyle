@@ -8,7 +8,7 @@ one:
   password_digest: MyString
   verification_code: MyString
   specialty: MyString
-  dob: 2019-08-11 16:23:18
+  dob: 2019-08-11 17:51:56
   therapist_code: MyString
 
 two:
@@ -19,5 +19,5 @@ two:
   password_digest: MyString
   verification_code: MyString
   specialty: MyString
-  dob: 2019-08-11 16:23:18
+  dob: 2019-08-11 17:51:56
   therapist_code: MyString

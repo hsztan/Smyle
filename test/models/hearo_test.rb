@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class HearoeTest < ActiveSupport::TestCase
+class HearoTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

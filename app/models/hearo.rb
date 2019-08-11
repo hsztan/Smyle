@@ -1,0 +1,2 @@
+class Hearo < ApplicationRecord
+end

@@ -1,2 +1,0 @@
-class HearoesController < ApplicationController
-end
