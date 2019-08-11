@@ -10,7 +10,6 @@ Rails.application.routes.draw do
   get '/login' => 'sessions#new'
   get '/signup' => 'smylers#new'
 
-  #google oauth2 routes
-  get 'auth/:provider/callback', to: 'sessions#googleAuth'
-  get 'auth/failure', to: redirect('/')
+  #facebook oauth2 routes
+  get '/auth/:provider/callback' => 'sessions#create'
 end

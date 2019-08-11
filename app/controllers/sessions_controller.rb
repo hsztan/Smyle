@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  def googleAuth
+  def create
     
   end
 end
