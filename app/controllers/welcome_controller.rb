@@ -1,4 +1,6 @@
 class WelcomeController < ApplicationController
-    def home
-    end
+  def home
+    @smyler = Smyler.new
+    @hearo = Hearo.new
+  end
 end
