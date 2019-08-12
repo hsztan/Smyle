@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   end
 
   #hearo helper methods
-  def current_smyler
+  def current_hearo
     @hearo = (Hearo.find_by(id: session[:hearo_id]) || Hearo.new)
   end
 
