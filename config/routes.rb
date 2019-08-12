@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   root to: 'welcome#home'
   get '/login' => 'smylers#new'
+  get '/logout' => 'sessions#destroy', as: 'logout'
   get '/smyler/signup' => 'smylers#new'
 
   #facebook oauth2 routes

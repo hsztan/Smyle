@@ -1,6 +1,6 @@
 class WelcomeController < ApplicationController
   def home
-    @smyler = Smyler.new
-    @hearo = Hearo.new
+    @smyler = current_smyler
+    @hearo = current_hearo
   end
 end

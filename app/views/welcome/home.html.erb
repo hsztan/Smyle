@@ -1,18 +1,12 @@
-<div class="center jumbotron">
-  <h1 class="display-4">Welcome to Smyle!</h1>
-  <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-  <hr class="my-4">
-  <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-  <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-  <ul>
-    <li>
-      <%= link_to "Login", '#' %> <br>
-    </li>
-     <li>
-      <%= link_to "Smyler Signup", new_smyler_path%>
-    </li>
-    <li>
-      <%= link_to "Hearo Signup", new_hearo_path%>
-    </li>
-  </ul>
+<div class="center jumbotron jumbotron-fluid">
+  <%= image_tag '/assets/smyle-logo-horizontal.png', class: "img-fluid" %>
+  <p class="lead">Smyle is a community of certified therapists called Hearos that can help you bring back your SmYle to Lyfe!</p>
+  <hr class="my-3">
+  <%= link_to 'Start SmYling!', new_smyler_path, class: "btn btn-primary btn-lg" %>
+  <%= link_to 'Become a Hearo!', new_hearo_path, class: "btn btn-primary btn-lg" %>
+  <hr class="my-3">
+  <p class="lead">How it works:</p>
+  <p class="lead">Once you become a SmYler you will be able to set meeetings with hearos which are certified therapists and will make the most to put back a SmYle on your face. <span>Signup</span> now and start SmYling!</p>
+
+ 
 </div>
