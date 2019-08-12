@@ -11,5 +11,5 @@ Rails.application.routes.draw do
   get '/signup' => 'smylers#new'
 
   #facebook oauth2 routes
-  get '/auth/:provider/callback' => 'sessions#create'
+  get '/auth/:provider/callback' => 'smylers#create'
 end

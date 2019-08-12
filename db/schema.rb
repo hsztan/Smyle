@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_11_225218) do
+ActiveRecord::Schema.define(version: 2019_08_12_000420) do
 
   create_table "hearos", force: :cascade do |t|
     t.string "username"
@@ -24,8 +24,6 @@ ActiveRecord::Schema.define(version: 2019_08_11_225218) do
     t.string "therapist_code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "google_token"
-    t.string "google_refresh_token"
   end
 
   create_table "meetings", force: :cascade do |t|
@@ -55,8 +53,8 @@ ActiveRecord::Schema.define(version: 2019_08_11_225218) do
     t.datetime "dob"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "google_token"
-    t.string "google_refresh_token"
+    t.integer "uid"
+    t.string "image"
   end
 
 end
