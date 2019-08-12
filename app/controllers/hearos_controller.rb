@@ -5,11 +5,12 @@ class HearosController < ApplicationController
   end
 
   def show
-
+    @hearo = current_hearo
+    redirect_to verify_hearo_path unless @hearo.verified?
   end
 
   def new
-
+    @hearo = current_hearo
   end
 
   def create
@@ -22,5 +23,9 @@ class HearosController < ApplicationController
 
   def update
     
+  end
+
+  def verify
+    @hearo = current_hearo
   end
 end
