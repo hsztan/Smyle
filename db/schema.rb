@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_13_145317) do
+ActiveRecord::Schema.define(version: 2019_08_13_171542) do
 
   create_table "genders", force: :cascade do |t|
     t.string "name"
@@ -27,7 +27,6 @@ ActiveRecord::Schema.define(version: 2019_08_13_145317) do
     t.string "last_name"
     t.string "password_digest"
     t.string "verification_code"
-    t.string "specialty"
     t.datetime "dob"
     t.string "therapist_code"
     t.datetime "created_at", null: false
@@ -67,6 +66,12 @@ ActiveRecord::Schema.define(version: 2019_08_13_145317) do
     t.integer "uid"
     t.string "image"
     t.integer "gender_id"
+  end
+
+  create_table "specialties", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
