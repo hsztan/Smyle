@@ -42,9 +42,9 @@
             </div>
         </div>
 
-        <%= fields_for @hearo.specialty %>
+        <%= form.fields_for :specialty do |s| %>
         <div class="field form-group row">
-            <%= f.text_field :name, list: "specialty_autocomplete" %>
+            <%= s.text_field :name, list: "specialty_autocomplete" %>
             <datalist id="specialty_autocomplete">
                 <% Specialty.all.each do |specialty| %>
                     <option value="<%= specialty.name %>">

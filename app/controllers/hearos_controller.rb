@@ -36,12 +36,12 @@ class HearosController < ApplicationController
   def verify
     #if logged in hearo
     @hearo = current_hearo
-
+    binding.pry
   end
 
   private
 
   def hearo_params
-    params.require(:hearo).permit(:gender_id, :username, :password, :password_confirmation, :first_name, :last_name, :middle_name, :specialty, :dob, :therapist_code)
+    params.require(:hearo).permit(:gender_id, :username, :password, :password_confirmation, :first_name, :last_name, :middle_name, :specialty, :dob, :therapist_code, specialty_attributes: [:name])
   end
 end
