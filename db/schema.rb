@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_13_171542) do
+ActiveRecord::Schema.define(version: 2019_08_13_174041) do
 
   create_table "genders", force: :cascade do |t|
     t.string "name"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 2019_08_13_171542) do
     t.boolean "available"
     t.boolean "verified?", default: false
     t.integer "gender_id"
+    t.integer "specialty_id"
   end
 
   create_table "meetings", force: :cascade do |t|

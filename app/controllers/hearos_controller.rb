@@ -12,7 +12,7 @@ class HearosController < ApplicationController
 
   def new
     @hearo = current_hearo
-    @gender = Gender.all
+    @hearo.build_specialty
   end
 
   def create
