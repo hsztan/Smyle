@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  resources :hearos
   get '/hearos/verify' => 'hearos#verify', as: 'verify_hearo'
+  resources :hearos
 
   resources :reviews
   resources :meetings
