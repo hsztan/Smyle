@@ -5,6 +5,7 @@ class HearosController < ApplicationController
   end
 
   def show
+    #if logged in hearo
     @hearo = current_hearo
     redirect_to verify_hearo_path unless @hearo.verified?
   end
@@ -17,6 +18,8 @@ class HearosController < ApplicationController
   def create
     @hearo = Hearo.new(hearo_params)
     if @hearo.save
+      session['hearo_id'] = @hearo.id
+      binding.pry
       redirect_to hearo_path(@hearo)
     else
       render :new
@@ -24,14 +27,15 @@ class HearosController < ApplicationController
   end
 
   def edit
-    
+    #if loggged in hearo
   end
 
   def update
-    
+    #if logged in hearo
   end
 
   def verify
+    #if logged in hearo
     @hearo = current_hearo
   end
 

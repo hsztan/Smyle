@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2019_08_13_145317) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "available"
-    t.boolean "verified?"
+    t.boolean "verified?", default: false
     t.integer "gender_id"
   end
 

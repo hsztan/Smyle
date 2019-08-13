@@ -5,3 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Gender.create(name: "Male")
+Gender.create(name: "Female")
+Gender.create(name: "Non-Binary")
