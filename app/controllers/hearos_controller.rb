@@ -11,10 +11,16 @@ class HearosController < ApplicationController
 
   def new
     @hearo = current_hearo
+    @gender = Gender.all
   end
 
   def create
-
+    @hearo = Hearo.new(hearo_params)
+    if @hearo.save
+      redirect_to hearo_path(@hearo)
+    else
+      render :new
+    end
   end
 
   def edit
@@ -27,5 +33,11 @@ class HearosController < ApplicationController
 
   def verify
     @hearo = current_hearo
+  end
+
+  private
+
+  def hearo_params
+    params.require(:hearo).permit(:gender_id, :username, :password, :password_confirmation, :first_name, :last_name, :middle_name, :specialty, :dob, :therapist_code)
   end
 end
