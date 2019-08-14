@@ -1,0 +1,78 @@
+<% if smyler.errors.any? %>
+    <div id="error_explanation">
+        <h2><%= pluralize(smyler.errors.count, "error") %> prohibited this smyler from being saved:</h2>
+
+        <ul>
+        <% smyler.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+        <% end %>
+        </ul>
+    </div>
+<% end %>
+
+<div class='row'>
+    <div class='col'>
+        <%= form_with(model: smyler, local: true) do |form| %>
+
+        <% if !smyler.id %>
+        <div class="field form-group row">
+            <%= form.label :username, class: "col-sm-2 col-form-label" %>
+            <div class="col-sm-10">
+                <%= form.text_field :username, class: "form-control" %>
+            </div>
+        </div>
+        <% end%>
+
+        <div class="field form-group row">
+            <%= form.label :password, class: "col-sm-2 col-form-label" %>
+            <div class="col-sm-10">
+                <%= form.password_field :password, class: "form-control" %>
+            </div>
+        </div>
+
+        <div class="field form-group row">
+            <%= form.label :first_name, class: "col-sm-2 col-form-label" %>
+            <div class="col-sm-10">
+                <%= form.text_field :first_name, class: "form-control" %>
+            </div>
+        </div>
+
+        <div class="field form-group row">
+            <%= form.label :last_name, class: "col-sm-2 col-form-label" %>
+            <div class="col-sm-10">
+                <%= form.text_field :last_name, class: "form-control" %>
+            </div>
+        </div>
+
+        <div class="field form-group row">
+            <%= form.label :gender, class: "col-sm-2 col-form-label" %>
+            <div class="col-sm-10">
+                <%= form.collection_select :gender_id, Gender.all, :id, :name, {class: "form-control"} %>  <!--- TODO: Find a way to add class for boostrap -->
+            </div>
+        </div>
+
+        <div class="field form-group row">
+            <%= form.label "Date of Birth", class: "col-sm-2 col-form-label" %>
+            <div class="col-sm-10">
+                <%= form.date_field :dob, class: "form-control" %>
+            </div>
+        </div>
+
+        <% if !@smyler.id %>
+          <div class="actions form-group">
+              <div>
+              <%= form.submit "Start Smyling!", class: "btn btn-primary btn-lg" %>
+              </div>
+          </div>
+        <% else %>
+          <div class="actions form-group">
+              <div>
+              <%= form.submit "Submit Changes", class: "btn btn-primary btn-lg" %>
+              </div>
+          </div>
+        <% end%>
+
+        </div>
+    </div>
+
+<% end %>

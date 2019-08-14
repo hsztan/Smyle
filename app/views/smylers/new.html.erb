@@ -1,4 +1,8 @@
-<h1>Smyler Signup!</h1>
+<div class="center jumbotron">
+  <h1 class="display-4">Become a Smyler!!</h1>
 
-<h1>Facebook Signup!</h1>
+  <%= render 'form', smyler: @smyler %>
+
+<p>Or Signup with Facebook!</p>
 <%= link_to 'Facebook Signup', '/auth/facebook' %>
+</div>

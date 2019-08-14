@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_14_165157) do
+ActiveRecord::Schema.define(version: 2019_08_14_231309) do
 
   create_table "bookings", force: :cascade do |t|
     t.datetime "starts_at"
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(version: 2019_08_14_165157) do
     t.integer "gender_id"
     t.integer "specialty_id"
     t.integer "status_id", default: 1
+    t.string "email"
   end
 
   create_table "meetings", force: :cascade do |t|
@@ -68,7 +69,9 @@ ActiveRecord::Schema.define(version: 2019_08_14_165157) do
     t.string "username"
     t.string "email"
     t.string "password_digest"
-    t.string "name"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "middle_name"
     t.datetime "dob"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

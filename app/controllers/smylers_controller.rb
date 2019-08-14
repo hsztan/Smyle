@@ -3,6 +3,10 @@ class SmylersController < ApplicationController
     @smyler = current_smyler
   end
 
+  def new
+    @smyler = current_smyler
+  end
+
   def create
     if auth
       @smyler = Smyler.find_or_create_by(uid: auth['uid']) do |u|
@@ -14,7 +18,13 @@ class SmylersController < ApplicationController
       session[:smyler_id] = @smyler.id
       redirect_to smyler_path(@smyler)
     else
-      #create manually and login
+      @hearo = Hearo.new(hearo_params)
+    if @hearo.save
+      session['smyler_id'] = @smyler.id
+      redirect_to smyler_path(@smyler)
+    else
+      render :new
+    end
     end
   end
 
