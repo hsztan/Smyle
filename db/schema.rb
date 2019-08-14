@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_14_034138) do
+ActiveRecord::Schema.define(version: 2019_08_14_165157) do
 
   create_table "bookings", force: :cascade do |t|
     t.datetime "starts_at"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 2019_08_14_034138) do
     t.boolean "verified", default: false
     t.integer "gender_id"
     t.integer "specialty_id"
+    t.integer "status_id", default: 1
   end
 
   create_table "meetings", force: :cascade do |t|
@@ -77,6 +78,12 @@ ActiveRecord::Schema.define(version: 2019_08_14_034138) do
   end
 
   create_table "specialties", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "statuses", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
