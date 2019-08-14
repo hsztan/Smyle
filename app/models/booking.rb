@@ -1,3 +1,3 @@
 class Booking < ApplicationRecord
-  belongs_to :hearos
+  belongs_to :hearo
 end
