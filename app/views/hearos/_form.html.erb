@@ -70,6 +70,13 @@
             </div>
         </div>
 
+        <div class="field form-group row">
+            <%= form.label "Date of Birth", class: "col-sm-2 col-form-label" %>
+            <div class="col-sm-10">
+                <%= form.date_field :dob, class: "form-control" %>
+            </div>
+        </div>
+
         <div class="actions form-group">
             <div>
             <%= form.submit "Request Verification!", class: "btn btn-primary btn-lg" %>

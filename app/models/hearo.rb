@@ -1,5 +1,6 @@
 class Hearo < ApplicationRecord
   has_many :reviews
+  has_many :bookings
   has_many :meetings
   belongs_to :gender
   belongs_to :specialty
