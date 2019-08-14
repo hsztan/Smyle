@@ -23,7 +23,7 @@
         </div>
 
         <div class="col bg-light">
-          <p class=lead>Meetings:</p>
+          <p class=lead><%= link_to 'Meetings:', meetings_path %></p>
           <ul class="list-group list-group-flush">
             <% @hearo.meetings.each do |meeting|%>
               <% if meeting.id %>

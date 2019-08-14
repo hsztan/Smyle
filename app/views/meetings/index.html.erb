@@ -1,0 +1,16 @@
+<div class='jumbotron'>
+
+  <div class="col bg-light">
+    <p class=lead>Meetings:</p>
+    <ul class="list-group list-group-flush">
+      <% @meetings.each do |meeting|%>
+        <% if meeting.id %>
+        <li class="list-group-item">
+         <%= link_to meeting.title, meeting_path(meeting) %> on: <%= meeting.start_time %> with: <%= hearo_logged_in? ? meeting.smyler.username : meeting.hearo.username %>
+        </li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+
+</div>
