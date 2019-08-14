@@ -1,6 +1,15 @@
 <div class="jumbotron">
     <h1 class="display-4 centered">Hello Hearo <%= link_to @hearo.first_name, edit_hearo_path(@hearo) if @hearo.verified%></h1>
     <hr class="my-3">
+    <div class="status centered">
+      <p class="lead">Your current status is set to: <span><%= @hearo.status.name %></span>
+        <%= form_with model: @hearo do |f|%>
+                <%= f.collection_select :status_id, Status.all, :id, :name, {class: "form-control"} %>
+                <%= f.submit "✔️" %>  <!--- TODO: Find a way to add class for boostrap -->
+        <% end %>
+      </p>
+    </div>
+    <hr class="my-3">
     <div class="row">
 
         <div class="col bg-light">
