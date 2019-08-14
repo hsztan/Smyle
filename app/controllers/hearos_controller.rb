@@ -10,6 +10,7 @@ class HearosController < ApplicationController
     if !@hearo.verified
       return redirect_to verify_hearo_path
     end
+    @booking = @hearo.bookings.build
   end
 
   def new

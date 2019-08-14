@@ -1,13 +1,34 @@
 <div class="jumbotron">
-    <h1 class="display-4 centered">Hello Hearo2 <%= @hearo.first_name %></h1>
+    <h1 class="display-4 centered">Hello Hearo <%= @hearo.first_name %></h1>
     <hr class="my-3">
     <div class="row">
+
         <div class="col bg-light">
           <p class=lead>Reserve Weekly Meeting Times:</p>
+          <%= form_with(model: @booking) do |f|%>
+            <%= f.label "Date and Time:" %>
+            <%= f.datetime_field :starts_at %>
+            <%= f.submit "Create" %>
+          <% end %>
         </div>
+
         <div class="col bg-light">
           <p class=lead>Meetings:</p>
-            
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col bg-light">
+        <p class=lead>Bookings:</p>
+        <ul>
+            <% @hearo.bookings.each do |booking|%>
+            <li><%= booking.starts_at %></li>
+            <% end %>
+        </ul>
+        </div>
+
+        <div class="col bg-light">
+          <p class=lead>Requests:</p>
         </div>
     </div>
 </div>
