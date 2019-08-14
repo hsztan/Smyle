@@ -18,6 +18,10 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    if @hearo = current_hearo
+      @hearo.status = Status.find_by(name: "Offline")
+      @hearo.save
+    end
     session.clear
     redirect_to root_path
   end
