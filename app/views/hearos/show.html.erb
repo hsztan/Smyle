@@ -10,6 +10,7 @@
       </p>
     </div>
     <hr class="my-3">
+
     <div class="row">
 
         <div class="col bg-light">
@@ -23,6 +24,15 @@
 
         <div class="col bg-light">
           <p class=lead>Meetings:</p>
+          <ul class="list-group list-group-flush">
+            <% @hearo.meetings.each do |meeting|%>
+              <% if meeting.id %>
+              <li class="list-group-item">
+               <%= link_to meeting.title, meeting_path(meeting) %>
+              </li>
+              <% end %>
+            <% end %>
+        </ul>
         </div>
     </div>
 

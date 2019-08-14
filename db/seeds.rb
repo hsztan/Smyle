@@ -21,3 +21,4 @@ Smyler.create(username: "SmyleMckenzie", password: 'password', dob: "1980-06-26"
 Booking.create(starts_at: "2019-08-26 17:00:00", hearo_id: 1)
 Booking.create(starts_at: "2019-08-26 18:00:00", hearo_id: 1)
 Booking.create(starts_at: "2019-08-26 12:00:00", hearo_id: 1)
+Meeting.create(title: "First Contact", start_time: '2019-08-26 18:00:00', smyler_id: 1, hearo_id:1, notes: 'This meeting is the first of few that will make you smile.')
