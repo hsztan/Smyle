@@ -7,10 +7,13 @@ class HearosController < ApplicationController
   def show
     #if logged in hearo
     @hearo = current_hearo
-    redirect_to verify_hearo_path
+    if !@hearo.verified
+      return redirect_to verify_hearo_path
+    end
   end
 
   def new
+    redirect_home_if_logged_in
     @hearo = current_hearo
     @hearo.build_specialty
   end
@@ -36,7 +39,6 @@ class HearosController < ApplicationController
   def verify
     #if logged in hearo
     @hearo = current_hearo
-    binding.pry
   end
 
   private

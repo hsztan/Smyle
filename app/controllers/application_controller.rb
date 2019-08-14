@@ -7,11 +7,9 @@ class ApplicationController < ActionController::Base
   
   def redirect_home_if_logged_in
     if smyler_logged_in?
-      redirect_to smyler_path(current_smyler)
+      return redirect_to smyler_path(current_smyler)
     elsif hearo_logged_in?
-      redirect_to hearo_path(current_hearo)
-    else
-      redirect_to(controller: 'welcome', action: 'home')
+      return redirect_to hearo_path(current_hearo)
     end
   end
 
@@ -32,9 +30,11 @@ class ApplicationController < ActionController::Base
   def current_hearo
     @hearo = (Hearo.find_by(id: session[:hearo_id]) || Hearo.new)
   end
+  helper_method :current_hearo
 
   def hearo_logged_in?
     current_hearo.id != nil
   end
+  helper_method :hearo_logged_in?
 
 end

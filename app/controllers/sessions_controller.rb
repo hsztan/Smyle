@@ -4,7 +4,17 @@ class SessionsController < ApplicationController
   end
 
   def create
-    redirect_home_if_logged_in
+    if params['hearo']
+      if @hearo = Hearo.find_by(username: params[:hearo][:username])
+        if @hearo.authenticate(params[:hearo][:password])
+          session[:hearo_id] = @hearo.id
+          return redirect_to hearo_path(@hearo)
+        end
+      end
+    elsif params[:smyler]
+
+    end
+    redirect_to root_path
   end
 
   def destroy

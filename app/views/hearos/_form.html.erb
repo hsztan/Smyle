@@ -11,7 +11,7 @@
 <% end %>
 
 <div class='row'>
-    <div class='col-sm-8'>
+    <div class='col'>
         <%= form_with(model: hearo, local: true) do |form| %>
 
         <div class="field form-group row">
@@ -44,23 +44,33 @@
 
         <%= form.fields_for :specialty do |s| %>
         <div class="field form-group row">
-            <%= s.text_field :name, list: "specialty_autocomplete" %>
-            <datalist id="specialty_autocomplete">
-                <% Specialty.all.each do |specialty| %>
-                    <option value="<%= specialty.name %>">
-                <% end %>
-            </datalist>
+            <%= s.label :specialty, class: "col-sm-2 col-form-label" %>
+            <div class="col-sm-10">
+                <%= s.text_field :name, list: "specialty_autocomplete", class: "form-control" %>
+                <datalist id="specialty_autocomplete">
+                    <% Specialty.all.each do |specialty| %>
+                        <option value="<%= specialty.name %>">
+                    <% end %>
+                </datalist>
+            </div>
         </div>
         <% end %>
 
         <div class="field form-group row">
             <%= form.label :gender, class: "col-sm-2 col-form-label" %>
             <div class="col-sm-10">
-                <%= form.collection_select :gender_id, Gender.all, :id, :name, class: "form-control" %>  <!--- TODO: add class for boostrap -->
+                <%= form.collection_select :gender_id, Gender.all, :id, :name, {class: "form-control"} %>  <!--- TODO: Find a way to add class for boostrap -->
             </div>
         </div>
 
-        <div class="actions form-group row">
+        <div class="field form-group row">
+            <%= form.label :therapist_code, class: "col-sm-2 col-form-label" %>
+            <div class="col-sm-10">
+                <%= form.text_field :therapist_code, class: "form-control" %>
+            </div>
+        </div>
+
+        <div class="actions form-group">
             <div>
             <%= form.submit "Request Verification!", class: "btn btn-primary btn-lg" %>
             </div>
