@@ -1,8 +1,8 @@
 class BookingsController < ApplicationController
 
   def create
-    raise params.inspect
     @booking = Booking.new(booking_params)
+    @booking.hearo = current_hearo
     if @booking.save
       return redirect_to hearo_path(@booking.hearo)
     end
@@ -16,6 +16,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require[:booking].permit[:starts_at, :hearo_id]
+    params.require(:booking).permit(:starts_at, :hearo_id)
   end
 end
