@@ -31,10 +31,16 @@ class HearosController < ApplicationController
 
   def edit
     #if loggged in hearo
+    @hero = current_hearo
   end
 
   def update
     #if logged in hearo
+    @hearo = current_hearo
+    if @hearo.update (hearo_params)
+      return redirect_to hearo_path(@hearo)
+    end
+    render :edit
   end
 
   def verify

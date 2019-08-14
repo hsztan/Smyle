@@ -14,12 +14,14 @@
     <div class='col'>
         <%= form_with(model: hearo, local: true) do |form| %>
 
+        <% if !hearo.id %>
         <div class="field form-group row">
             <%= form.label :username, class: "col-sm-2 col-form-label" %>
             <div class="col-sm-10">
                 <%= form.text_field :username, class: "form-control" %>
             </div>
         </div>
+        <% end%>
 
         <div class="field form-group row">
             <%= form.label :password, class: "col-sm-2 col-form-label" %>
@@ -77,12 +79,19 @@
             </div>
         </div>
 
-        <div class="actions form-group">
-            <div>
-            <%= form.submit "Request Verification!", class: "btn btn-primary btn-lg" %>
-            </div>
-        </div>
-            
+        <% if !@hearo.id %>
+          <div class="actions form-group">
+              <div>
+              <%= form.submit "Request Verification!", class: "btn btn-primary btn-lg" %>
+              </div>
+          </div>
+        <% else %>
+          <div class="actions form-group">
+              <div>
+              <%= form.submit "Submit Changes", class: "btn btn-primary btn-lg" %>
+              </div>
+          </div>
+        <% end%>
 
         </div>
     </div>
