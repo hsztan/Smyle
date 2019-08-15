@@ -19,16 +19,22 @@
 
   <div class="col bg-light">
     <p class='lead'>Available Times:</p>
-        <ul class="list-group list-group-flush">
-            <% @hearo.bookings.each do |booking|%>
-              <li class="list-group-item">
-               <%= form_for [@hearo, booking, @meeting] do |f|%>
-                 <%= f.text_field :start_time, type: 'hidden', value: booking.starts_at %>
-                 <%= booking.starts_at %>  <%= submit_tag "Book" %>
-               <% end %>
-              </li>
-            <% end %>
-        </ul>
+        <% if @hearo.bookings.empty? %>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                  <p> There are no available times at the moment!</p>
+                </li>
+        <% else %>
+                <% @hearo.bookings.each do |booking|%>
+                <li class="list-group-item">
+                <%= form_for [@hearo, booking, @meeting] do |f|%>
+                    <%= f.text_field :start_time, type: 'hidden', value: booking.starts_at %>
+                    <%= booking.starts_at %>  <%= submit_tag "Book" %>
+                <% end %>
+                </li>
+                <% end %>
+            </ul>
+        <% end %>
   </div>
 
 </div>
