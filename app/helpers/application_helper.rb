@@ -2,9 +2,9 @@ module ApplicationHelper
 
   def dynamic_route_to_home_string
     if smyler_logged_in?
-      smyler_path(current_smyler)
+      smyler_panel_path
     elsif hearo_logged_in?
-      hearo_path(current_hearo)
+      hearo_panel_path
     else
       '/'
     end

@@ -3,6 +3,10 @@ class SmylersController < ApplicationController
     @smyler = current_smyler
   end
 
+  def panel
+    @smyler = current_smyler
+  end
+
   def new
     @smyler = current_smyler
   end
@@ -16,12 +20,12 @@ class SmylersController < ApplicationController
         u.password = "FACEBOOK"  #TODO Find a secure method to use bcrypt in this case
       end
       session[:smyler_id] = @smyler.id
-      redirect_to smyler_path(@smyler)
+      redirect_to smyler_panel_path
     else
       @smyler = Smyler.new(smyler_params)
     if @smyler.save
       session['smyler_id'] = @smyler.id
-      redirect_to smyler_path(@smyler)
+      redirect_to smyler_panel_path
     else
       render :new
     end

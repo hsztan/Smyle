@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get '/hearo/panel' => 'hearos#panel', as: 'hearo_panel'
+  get '/smyler/panel' => 'smylers#panel', as: 'smyler_panel'
   get '/hearos/verify' => 'hearos#verify', as: 'verify_hearo'
   resources :hearos do
     resources :reviews, only: [:show, :index]

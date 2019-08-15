@@ -13,6 +13,15 @@ class HearosController < ApplicationController
     @booking = @hearo.bookings.build
   end
 
+  def panel
+    #if logged in hearo
+    @hearo = current_hearo
+    if !@hearo.verified
+      return redirect_to verify_hearo_path
+    end
+    @booking = @hearo.bookings.build
+  end
+
   def new
     redirect_home_if_logged_in
     @hearo = current_hearo
@@ -38,7 +47,7 @@ class HearosController < ApplicationController
     #if logged in hearo
     @hearo = current_hearo
     if @hearo.update (hearo_params)
-      return redirect_to hearo_path(@hearo)
+      return redirect_to hearo_panel_path
     end
     render :edit
   end
