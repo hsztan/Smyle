@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   get '/hearos/verify' => 'hearos#verify', as: 'verify_hearo'
 
   resources :hearos do
-    resources :meetings, only: [:create]
+      resources :bookings, only: [:show] do
+        resources :meetings, only: [:create]
+      end
   end
   resources :hearos do
     resources :reviews, only: [:show, :index]

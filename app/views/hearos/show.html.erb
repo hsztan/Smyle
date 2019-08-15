@@ -22,7 +22,7 @@
         <ul class="list-group list-group-flush">
             <% @hearo.bookings.each do |booking|%>
               <li class="list-group-item">
-               <%= form_for [@hearo, @meeting] do |f|%>
+               <%= form_for [@hearo, booking, @meeting] do |f|%>
                  <%= f.text_field :start_time, type: 'hidden', value: booking.starts_at %>
                  <%= booking.starts_at %>  <%= submit_tag "Book" %>
                <% end %>
