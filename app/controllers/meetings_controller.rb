@@ -19,6 +19,8 @@ class MeetingsController < ApplicationController
     @meeting.smyler = current_smyler
     @meeting.hearo_id = params[:hearo_id]
     if @meeting.save
+      #Hearo.delete_booking(hearo_id, start_time)
+      #delete hearo booking
       redirect_home
     else
       render :new
