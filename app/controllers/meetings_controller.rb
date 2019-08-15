@@ -13,4 +13,21 @@ class MeetingsController < ApplicationController
   def show
     @meeting = Meeting.find_by(id: params[:id])
   end
+
+  def create
+    @meeting = Meeting.new(meeting_params)
+    @meeting.smyler = current_smyler
+    @meeting.hearo_id = params[:hearo_id]
+    if @meeting.save
+      redirect_home
+    else
+      render :new
+    end
+  end
+
+  private
+
+  def meeting_params
+    params.require(:meeting).permit(:start_time, :title, :notes, :hearo_id, :smyler_id)
+  end
 end

@@ -10,7 +10,7 @@
             <% Hearo.online.each do |hearo|%>
               <% if hearo.id %>
               <li class="list-group-item">
-               <%= link_to hearo.username, '#' %>
+               <%= link_to hearo.username, hearo_path(hearo) %>
               </li>
               <% end %>
             <% end %>
@@ -39,7 +39,7 @@
               <% if hearo.id %>
               <li class="list-group-item">
                <p>
-                 <%= link_to hearo.username, '#' %> - <%= hearo.specialty.name %>
+                 <%= link_to hearo.full_name, hearo_path(hearo) %> - <%= hearo.specialty.name %>
                </p>
               </li>
               <% end %>

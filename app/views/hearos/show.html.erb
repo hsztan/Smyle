@@ -1,16 +1,34 @@
 <div class='jumbotron'>
 
   <div class="col bg-light">
-    <p class=lead>Hearo <%= hearo.full_name %></p>
+    <p class='lead'>Hearo <%= @hearo.full_name %></p>
     <ul class="list-group list-group-flush">
-      <% @meetings.each do |meeting|%>
-        <% if meeting.id %>
-        <li class="list-group-item">
-         <%= link_to meeting.title, meeting_path(meeting) %> on: <%= meeting.start_time %> with: <%= hearo_logged_in? ? meeting.smyler.username : meeting.hearo.username %>
-        </li>
-        <% end %>
-      <% end %>
+      <li class="list-group-item">
+         Username: <%= @hearo.username %>
+      </li>
+      <li class="list-group-item">
+         Specialty: <%= @hearo.specialty.name %>
+      </li>
+       <li class="list-group-item">
+         Sex: <%= @hearo.gender.name %>
+      </li>
     </ul>
+  </div>
+  
+  <hr class="my-3">
+
+  <div class="col bg-light">
+    <p class='lead'>Available Times:</p>
+        <ul class="list-group list-group-flush">
+            <% @hearo.bookings.each do |booking|%>
+              <li class="list-group-item">
+               <%= form_for [@hearo, @meeting] do |f|%>
+                 <%= f.text_field :start_time, type: 'hidden', value: booking.starts_at %>
+                 <%= booking.starts_at %>  <%= submit_tag "Book" %>
+               <% end %>
+              </li>
+            <% end %>
+        </ul>
   </div>
 
 </div>

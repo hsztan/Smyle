@@ -1,15 +1,13 @@
 class ApplicationController < ActionController::Base
 
-  def logged_in?
-    smyler_logged_in? || hearo_logged_in?
-  end
-  helper_method :logged_in?
   
-  def redirect_home_if_logged_in
+  def redirect_home
     if smyler_logged_in?
-      return redirect_to smyler_path(current_smyler)
+      return redirect_to smyler_panel_path
     elsif hearo_logged_in?
-      return redirect_to hearo_path(current_hearo)
+      return redirect_to hearo_panel_path
+    else
+      return redirect '/'
     end
   end
 
@@ -17,6 +15,11 @@ class ApplicationController < ActionController::Base
     return redirect_to(controller: 'welcome', action: 'home') unless smyler_logged_in || hearo_logged_in?
   end
 
+  def logged_in?
+    smyler_logged_in? || hearo_logged_in?
+  end
+  helper_method :logged_in?
+  
   #smyler helper methods
   def current_smyler
     @smyler = (Smyler.find_by(id: session[:smyler_id]) || Smyler.new)

@@ -5,12 +5,13 @@ class HearosController < ApplicationController
   end
 
   def show
-    #if logged in hearo
-    @hearo = current_hearo
-    if !@hearo.verified
-      return redirect_to verify_hearo_path
+    #if logged in smyler
+    if @hearo = Hearo.find_by(id: params[:id])
+      @meeting = Meeting.new
+    else
+      redirect_home #helper method defined in application_controller.rb
     end
-    @booking = @hearo.bookings.build
+    #also check if hero exists
   end
 
   def panel
