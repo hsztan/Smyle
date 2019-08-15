@@ -18,8 +18,8 @@ class SmylersController < ApplicationController
       session[:smyler_id] = @smyler.id
       redirect_to smyler_path(@smyler)
     else
-      @hearo = Hearo.new(hearo_params)
-    if @hearo.save
+      @smyler = Smyler.new(smyler_params)
+    if @smyler.save
       session['smyler_id'] = @smyler.id
       redirect_to smyler_path(@smyler)
     else
@@ -32,5 +32,9 @@ class SmylersController < ApplicationController
  
   def auth
     request.env['omniauth.auth']
+  end
+
+  def smyler_params
+    params.require(:smyler).permit(:gender_id, :username, :email, :password, :password_confirmation, :first_name, :last_name, :middle_name, :dob)
   end
 end
