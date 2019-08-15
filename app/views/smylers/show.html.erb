@@ -18,7 +18,7 @@
         </div>
 
         <div class="col bg-light">
-          <p class=lead><%= link_to 'Meetings:', meetings_path %></p>
+          <p class=lead><%= link_to 'Booked Meetings:', meetings_path %></p>
           <ul class="list-group list-group-flush">
             <% @smyler.meetings.each do |meeting|%>
               <% if meeting.id %>
@@ -33,12 +33,14 @@
 
     <div class="row">
         <div class="col bg-light">
-        <p class=lead>Search Hearo by Specialty:</p>
+        <p class=lead><%= link_to 'Hearo by Specialty:', '#' %></p>
         <ul class="list-group list-group-flush">
-            <% Hearo.specialty_order do |hearo|%>
+            <% Hearo.specialty_order.each do |hearo|%>
               <% if hearo.id %>
               <li class="list-group-item">
-               <%= link_to hearo.username, '#' %>
+               <p>
+                 <%= link_to hearo.username, '#' %> - <%= hearo.specialty.name %>
+               </p>
               </li>
               <% end %>
             <% end %>
@@ -46,7 +48,7 @@
         </div>
 
         <div class="col bg-light">
-          <p class=lead>Requests:</p>
+          <p class=lead><%= link_to 'Make a meeting:', meetings_path %></p>
         </div>
     </div>
     <div class="centered pad container">

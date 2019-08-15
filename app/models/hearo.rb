@@ -16,4 +16,8 @@ class Hearo < ApplicationRecord
   def self.online
     self.all.select {|h| h.status.name == 'Online'}
   end
+
+  def self.specialty_order
+    self.all.sort_by {|hearo| hearo.specialty.id}
+  end
 end
