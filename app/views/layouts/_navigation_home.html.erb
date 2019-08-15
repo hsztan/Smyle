@@ -1,12 +1,23 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="/">
+  <a class="navbar-brand" href="<%= dynamic_route_to_home_string %>">
     <img src="/assets/smyle-logo-horizontal.png" width="20%" height="20%" class="d-inline-block align-top" alt="">
   </a>
 
-  <% if logged_in?%>
-    <%= link_to 'Signout', logout_path, class: 'nav-link' %>
-  <% else %>
+  <% if smyler_logged_in?%>
+     <div class="navbar-nav">
+      <a class="nav-item nav-link" href="#">Home</a>
+      <a class="nav-item nav-link" href="#">Meetings</a>
+      <%= link_to 'Signout', logout_path, class: 'nav-link' %>
+    </div>
 
+  <% elsif hearo_logged_in? %>
+    <div class="navbar-nav">
+      <a class="nav-item nav-link" href="#">Home</a>
+      <a class="nav-item nav-link" href="#">Meetings</a>
+      <%= link_to 'Signout', logout_path, class: 'nav-link' %>
+    </div>
+
+  <% elsif !logged_in? %>
     <div id="navbarNavDropdown">
       <ul class="navbar-nav">
 
@@ -16,7 +27,7 @@
           </a>
           <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdownMenuLink">
             <div class="input-group">
-              <%= form_for @smyler, url: '/sessions', html: {class: "form-inline"} do |f| %>
+              <%= form_for current_smyler, url: '/sessions', html: {class: "form-inline"} do |f| %>
                   <%= f.text_field :username %>
                   <%= f.password_field :password %>
                   <%= f.submit 'Login' %>
@@ -31,7 +42,7 @@
           </a>
           <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdownMenuLink">
             <div class="input-group">
-              <%= form_for @hearo, url: '/sessions', html: {class: "form-inline"} do |f| %>
+              <%= form_for current_hearo, url: '/sessions', html: {class: "form-inline"} do |f| %>
                   <%= f.text_field :username %>
                   <%= f.password_field :password %>
                   <%= f.submit 'Login' %>
@@ -42,7 +53,6 @@
 
       </ul>
     </div>
-
   <% end %> <!-- ends if logged_in -->
 
 </nav>

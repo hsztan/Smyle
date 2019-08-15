@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    if params['hearo']
+    if params[:hearo]
       if @hearo = Hearo.find_by(username: params[:hearo][:username])
         if @hearo.authenticate(params[:hearo][:password])
           session[:hearo_id] = @hearo.id
@@ -12,7 +12,12 @@ class SessionsController < ApplicationController
         end
       end
     elsif params[:smyler]
-
+      if @smyler = Smyler.find_by(username: params[:smyler][:username])
+        if @smyler.authenticate(params[:smyler][:password])
+          session[:smyler_id] = @smyler.id
+          return redirect_to smyler_path(@smyler)
+        end
+      end
     end
     redirect_to root_path
   end

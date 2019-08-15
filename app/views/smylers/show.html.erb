@@ -1,1 +1,49 @@
-<h1>Welcome <%= @smyler.first_name %></h1>
+<div class="jumbotron">
+    <h1 class="display-4 centered">Hello Smyler <%= link_to @smyler.first_name, edit_smyler_path(@smyler)%></h1>
+    <hr class="my-3">
+
+    <div class="row">
+
+        <div class="col bg-light">
+          <p class=lead>Online Hearo's:</p>
+          <% Hearo %>
+        </div>
+
+        <div class="col bg-light">
+          <p class=lead><%= link_to 'Meetings:', meetings_path %></p>
+          <ul class="list-group list-group-flush">
+            <% @hearo.meetings.each do |meeting|%>
+              <% if meeting.id %>
+              <li class="list-group-item">
+               <%= link_to meeting.title, meeting_path(meeting) %>
+              </li>
+              <% end %>
+            <% end %>
+        </ul>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col bg-light">
+        <p class=lead>Bookings:</p>
+        <ul class="list-group list-group-flush">
+            <% @hearo.bookings.each do |booking|%>
+              <% if booking.id %>
+              <li class="list-group-item">
+               <%= form_tag booking_path(booking), method: "delete" do %>
+                 <%= booking.starts_at %>  <%= submit_tag "X" %>
+               <% end %>
+              </li>
+              <% end %>
+            <% end %>
+        </ul>
+        </div>
+
+        <div class="col bg-light">
+          <p class=lead>Requests:</p>
+        </div>
+    </div>
+    <div class="centered pad container">
+     <p class=lead>See your nested reviews!</p>
+    </div>
+</div>
