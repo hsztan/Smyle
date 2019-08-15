@@ -12,4 +12,8 @@ class Hearo < ApplicationRecord
   def specialty_attributes=(attributes)
     self.specialty = Specialty.find_or_create_by(name: attributes[:name])
   end
+
+  def self.online
+    self.all.select {|h| h.status.name == 'Online'}
+  end
 end
