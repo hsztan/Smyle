@@ -24,7 +24,6 @@ class HearosController < ApplicationController
   end
 
   def new
-    redirect_home_if_logged_in
     @hearo = current_hearo
     @hearo.build_specialty
   end

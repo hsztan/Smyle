@@ -15,7 +15,6 @@ class MeetingsController < ApplicationController
   end
 
   def create
-    binding.pry
     @meeting = Meeting.new(meeting_params)
     @meeting.smyler = current_smyler
     @meeting.hearo_id = params[:hearo_id]
