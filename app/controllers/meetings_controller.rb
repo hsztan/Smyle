@@ -26,6 +26,16 @@ class MeetingsController < ApplicationController
     end
   end
 
+  def destroy
+    meeting = Meeting.find_by(id: params[:id])
+    hearo = meeting.hearo
+    booking = Booking.new(hearo_id: hearo.id, starts_at: meeting.start_time)
+    if booking.save
+      meeting.destroy
+      return redirect_home
+    end
+  end
+
   private
 
   def meeting_params

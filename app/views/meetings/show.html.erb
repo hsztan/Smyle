@@ -1,8 +1,11 @@
 <div class='jumbotron'>
-<p class="lead">Smyler: <%= @meeting.smyler.username %></p>
-<p class="lead">Hearo: <%= @meeting.hearo.username %></p>
-<p class="lead">Title: <%= @meeting.title %></p>
-<p class="lead">On: <%= @meeting.start_time %></p>
-<p class="lead">Notes: <%= @meeting.notes %></p>
+    <p class="lead">Smyler: <%= @meeting.smyler.username %></p>
+    <p class="lead">Hearo: <%= @meeting.hearo.username %></p>
+    <p class="lead">Title: <%= @meeting.title %></p>
+    <p class="lead">On: <%= @meeting.start_time %></p>
+    <p class="lead">Notes: <%= @meeting.notes %></p>
+    <%= form_with model: @meeting, method: 'delete' do |f| %>
+      <%= f.submit 'Cancel Meeting' %>
+    <% end %>
 
 </div>
