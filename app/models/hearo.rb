@@ -5,9 +5,11 @@ class Hearo < ApplicationRecord
   has_many :meetings
   belongs_to :gender
   belongs_to :specialty
-  #accepts_nested_attributes_for :specialty
   has_many :smylers, through: :meetings
   has_secure_password
+
+  validates :username, uniqueness: true
+  validates :email, uniqueness: true
 
   def specialty_attributes=(attributes)
     self.specialty = Specialty.find_or_create_by(name: attributes[:name])
