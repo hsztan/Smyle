@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
-
   
   def redirect_home
     if smyler_logged_in?
@@ -7,7 +6,7 @@ class ApplicationController < ActionController::Base
     elsif hearo_logged_in?
       return redirect_to hearo_panel_path
     else
-      return redirect '/'
+      return redirect_to '/'
     end
   end
 

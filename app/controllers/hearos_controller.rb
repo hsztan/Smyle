@@ -1,21 +1,20 @@
 class HearosController < ApplicationController
 
   def index
-    
+    #TODO
   end
 
   def show
-    #if logged in smyler
+    return redirect_home if !smyler_logged_in?
     if @hearo = Hearo.find_by(id: params[:id])
       @meeting = Meeting.new
     else
       redirect_home #helper method defined in application_controller.rb
     end
-    #also check if hero exists
   end
 
   def panel
-    #if logged in hearo
+    return redirect_home if !hearo_logged_in?
     @hearo = current_hearo
     if !@hearo.verified
       return redirect_to verify_hearo_path
@@ -39,12 +38,12 @@ class HearosController < ApplicationController
   end
 
   def edit
-    #if loggged in hearo
+    return redirect_home if !hearo_logged_in?
     @hero = current_hearo
   end
 
   def update
-    #if logged in hearo
+    return redirect_home if !hearo_logged_in?
     @hearo = current_hearo
     if @hearo.update (hearo_params)
       return redirect_to hearo_panel_path
@@ -53,7 +52,7 @@ class HearosController < ApplicationController
   end
 
   def verify
-    #if logged in hearo
+    return redirect_home if !hearo_logged_in?
     @hearo = current_hearo
   end
 

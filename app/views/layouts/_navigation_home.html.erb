@@ -5,15 +5,15 @@
 
   <% if smyler_logged_in?%>
      <div class="navbar-nav">
-      <a class="nav-item nav-link" href="#">Home</a>
-      <a class="nav-item nav-link" href="#">Meetings</a>
+      <a class="nav-item nav-link" href="<%= dynamic_route_to_home_string %>">Home</a>
+      <a class="nav-item nav-link" href="/meetings">Meetings</a>
       <%= link_to 'Signout', logout_path, class: 'nav-link' %>
     </div>
 
   <% elsif hearo_logged_in? %>
     <div class="navbar-nav">
-      <a class="nav-item nav-link" href="#">Home</a>
-      <a class="nav-item nav-link" href="#">Meetings</a>
+      <a class="nav-item nav-link" href="<%= dynamic_route_to_home_string %>">Home</a>
+      <a class="nav-item nav-link" href="/meetings">Meetings</a>
       <%= link_to 'Signout', logout_path, class: 'nav-link' %>
     </div>
 
