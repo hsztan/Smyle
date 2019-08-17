@@ -2,10 +2,11 @@ class HearosController < ApplicationController
 
   def index
     #TODO
+    redirect_home
   end
 
   def show
-    return redirect_home if !smyler_logged_in?
+    redirect_home if !smyler_logged_in?
     if @hearo = Hearo.find_by(id: params[:id])
       @meeting = Meeting.new
     else
@@ -14,7 +15,7 @@ class HearosController < ApplicationController
   end
 
   def panel
-    return redirect_home if !hearo_logged_in?
+    redirect_home if !hearo_logged_in?
     @hearo = current_hearo
     if !@hearo.verified
       return redirect_to verify_hearo_path
@@ -23,6 +24,7 @@ class HearosController < ApplicationController
   end
 
   def new
+    redirect_home if hearo_logged_in?
     @hearo = current_hearo
     @hearo.build_specialty
   end
@@ -38,12 +40,12 @@ class HearosController < ApplicationController
   end
 
   def edit
-    return redirect_home if !hearo_logged_in?
+    redirect_home if !hearo_logged_in?
     @hero = current_hearo
   end
 
   def update
-    return redirect_home if !hearo_logged_in?
+    redirect_home if !hearo_logged_in?
     @hearo = current_hearo
     if @hearo.update (hearo_params)
       return redirect_to hearo_panel_path
@@ -52,7 +54,7 @@ class HearosController < ApplicationController
   end
 
   def verify
-    return redirect_home if !hearo_logged_in?
+    redirect_home if !hearo_logged_in?
     @hearo = current_hearo
   end
 

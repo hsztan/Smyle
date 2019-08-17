@@ -11,6 +11,7 @@ class MeetingsController < ApplicationController
   end
 
   def show
+    return redirect_home if !logged_in?
     @meeting = Meeting.find_by(id: params[:id])
   end
 

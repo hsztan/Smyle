@@ -4,10 +4,12 @@ class SmylersController < ApplicationController
   end
 
   def panel
+    redirect_home if !smyler_logged_in?
     @smyler = current_smyler
   end
 
   def new
+    redirect_home if smyler_logged_in?
     @smyler = current_smyler
   end
 
@@ -33,12 +35,11 @@ class SmylersController < ApplicationController
   end
 
   def edit
-    #if logged in smyler
+    redirect_home if !smyler_logged_in?
     @smyler = current_smyler
   end
 
   def update
-    #if smyler_logged in
     @smyler = current_smyler
     if @smyler.update (smyler_params)
       return redirect_to smyler_panel_path

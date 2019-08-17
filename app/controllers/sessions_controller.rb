@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
   
   def new
+    return redirect_home
   end
 
   def create
