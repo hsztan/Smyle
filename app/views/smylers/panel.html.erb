@@ -5,7 +5,7 @@
     <div class="row">
 
         <div class="col bg-light">
-          <p class=lead><%= link_to 'Online Hearos:', '#' %></p>
+          <p class=lead>Online Hearos:</p>
           <ul class="list-group list-group-flush">
             <% Hearo.online.each do |hearo|%>
               <% if hearo.id %>
@@ -31,7 +31,7 @@
 
     <div class="row">
         <div class="col bg-light">
-        <p class=lead><%= link_to 'Hearo by Specialty:', '#' %></p>
+        <p class=lead>Hearo by Specialty:</p>
         <ul class="list-group list-group-flush">
             <% Hearo.specialty_order.each do |hearo|%>
               <% if hearo.id %>
@@ -45,11 +45,8 @@
         </ul>
         </div>
 
-        <div class="col bg-light">
-          <p class=lead><%= link_to 'Make a meeting:', meetings_path %></p>
-        </div>
     </div>
     <div class="centered pad container">
-     <p class=lead>Something may go here</p>
+     <p class=lead></p>
     </div>
 </div>
