@@ -11,7 +11,7 @@ class Hearo < ApplicationRecord
   validates :username, uniqueness: true
   validates :email, uniqueness: true
 
-  #scope :online, -> { where(online: true) }
+  scope :verified, -> { where(verified: true) }
 
   def specialty_attributes=(attributes)
     self.specialty = Specialty.find_or_create_by(name: attributes[:name])
