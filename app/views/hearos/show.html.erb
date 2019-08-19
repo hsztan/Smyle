@@ -18,6 +18,9 @@
        <li class="list-group-item">
          Gender: <%= @hearo.gender.name %>
       </li>
+      <li class="list-group-item">
+         <%= link_to 'Make a review!', new_hearo_review_path(@hearo) %>
+      </li>
     </ul>
   </div>
   

@@ -8,8 +8,9 @@ Rails.application.routes.draw do
         resources :meetings, only: [:create]
       end
   end
+
   resources :hearos do
-    resources :reviews, only: [:show, :index]
+    resources :reviews, only: [:new, :create, :show, :index]
   end
 
   resources :reviews
