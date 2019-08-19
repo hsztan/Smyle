@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   end
 
   resources :hearos do
-    resources :reviews, only: [:new, :create, :show, :index]
+    resources :reviews, only: [:new, :create, :index]
   end
 
   resources :reviews
