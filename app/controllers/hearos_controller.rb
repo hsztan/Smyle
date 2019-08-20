@@ -58,6 +58,10 @@ class HearosController < ApplicationController
     @hearo = current_hearo
   end
 
+  def max_meetings
+    @hearo = Hearo.most_meetings
+  end
+
   private
 
   def hearo_params

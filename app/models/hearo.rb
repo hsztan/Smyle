@@ -12,6 +12,7 @@ class Hearo < ApplicationRecord
   validates :email, uniqueness: true
 
   scope :verified, -> { where(verified: true) }
+  scope :most_meetings, -> { where(id: Meeting.maximum(:hearo_id)).first }
 
   def specialty_attributes=(attributes)
     self.specialty = Specialty.find_or_create_by(name: attributes[:name])

@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   get '/smyler/panel' => 'smylers#panel', as: 'smyler_panel'
   get '/hearos/verify' => 'hearos#verify', as: 'verify_hearo'
 
+  get '/hearos/max-meetings' => 'hearos#max_meetings'
+
   resources :hearos do
       resources :bookings, only: [:show] do
         resources :meetings, only: [:create]
